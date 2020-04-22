@@ -8,24 +8,40 @@ var guessesLeft = "";
 var lettersGuessed = [];
 var guessesLeft = 7;
 var userGuess = "";
+// var userGuess = "";
+// document.onkeyup = function(event) {
+//     var letter = event.key.toLowerCase();
+//     while (emptyString.length < 26) {
+//         emptyString += alphabet[Math.floor(Math.random() * alphabet.length)];
+//       } 
+//       console.log(emptyString);
+    // for(let i = 0; i < options.length; i++){
+    //     console.log(options[i]);
+        
+    
+// }
+// function getRandomLetter() {
+//   return alphabet[Math.floor(Math.random() * alphabet.length)];
+// }
+var computerGuess = options[Math.floor(Math.random() * options.length)];
 
-function getRandomLetter() {
-  return alphabet[Math.floor(Math.random() * alphabet.length)];
-}
+
+
+// while (emptyString.length < 1) {
+//   randomLetter = getRandomLetter();
+//   emptyString += randomLetter;
+// } 
+
+alert("computer guess: " + computerGuess)
+console.log("computer guess: " + computerGuess)
 
 function resetGame (){
   guessesLeft=7;
   options=[];
-  getRandomLetter();
+  var computerGuess = options[Math.floor(Math.random() * options.length)];
+  lettersGuessed=[]
+  
 }
-var randomLetter;
-
-while (emptyString.length < 1) {
-  randomLetter = getRandomLetter();
-  emptyString += randomLetter;
-} 
-console.log(emptyString);
-alert("computer guess: " + emptyString)
 
 document.onkeyup = function(event) {
     var options = event.key.toLowerCase();
@@ -34,11 +50,12 @@ document.onkeyup = function(event) {
     console.log(options);
     alert("user guess: " + options);
 
-    if (options === emptyString){
+    if (options === computerGuess){
       wins++
       alert("You've Guessed Correct: " + options)
-      resetGame(guessesLeft=7,getRandomLetter,lettersGuessed=[]);
-      
+      resetGame();
+      // document.location.reload();
+      // clearInterval(interaval);
     }
     
     else {
@@ -48,11 +65,10 @@ document.onkeyup = function(event) {
     if (guessesLeft === 0){
       losses++
       alert("you lose");
-      resetGame(guessesLeft=7,getRandomLetter,lettersGuessed=[]);
-      // document.location.resetGame();
+      resetGame();
+      // document.location.reload();
       // clearInterval(interaval);
     }
-    
     
     
     var html = "<p>Guess what letter I'm thinking of</p>" +
