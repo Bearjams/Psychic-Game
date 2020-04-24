@@ -6,25 +6,30 @@ var lettersGuessed = [];
 var guessesLeft = 7;
 var computerGuess = "";
 
+var directionsText = document.getElementById("directions-text");
+var winsText = document.getElementById("wins-text");
+var lossesText = document.getElementById("losses-text");
+var guessesLeftText = document.getElementById("guesses-left-text");
+var lettersGuessedText = document.getElementById("letters-guessed-text");
 
 var computerGuess = options[Math.floor(Math.random() * options.length)];
 
-alert("computer guess: " + computerGuess)
-console.log("computer guess: " + computerGuess)
+("computer guess: " + computerGuess)
+
 
 function restart (){
   guessesLeft= 7;
   lettersGuessed= [];
   computerGuess = options[Math.floor(Math.random() * options.length)];
-  alert("computer guess: " + computerGuess)
+  ("computer guess: " + computerGuess)
 }
 
 document.onkeyup = function(event) {
     var key = event.key.toLowerCase();
     
 
-    console.log(key);
-    alert("user guess: " + key);
+    //console.log(key);
+    ("user guess: " + key);
 
     if (key === computerGuess){
       wins++
@@ -50,14 +55,12 @@ document.onkeyup = function(event) {
     "<p> Letters Guessed: "  + lettersGuessed + "</p>";
 
     document.querySelector('#game').innerHTML = html; 
+
+    
     
 
 }
-    // document.getElementById('wins').innerHTML = "Wins: " + wins;   
-    // document.getElementById('losses').innerHTML = "Losses: " + losses;   
-    // document.getElementById('guesses left').innerHTML = "Guesses left: " + guessesLeft;
-    // document.getElementById('guesses so far').innerHTML = "Guesses so far" + options;   
-
+    
     
     
     
